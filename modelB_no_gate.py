@@ -17,7 +17,7 @@ class OpinionLeaderAdvancedGNN(torch.nn.Module):
         self.attr_lin = torch.nn.Linear(in_channels - 300, hidden_channels)
 
         # 自适应门控融合机制 (Attention-driven Gating Mechanism)
-        self.gate_layer = torch.nn.Linear(hidden_channels * 2, hidden_channels)
+        #self.gate_layer = torch.nn.Linear(hidden_channels * 2, hidden_channels)
 
         # 引入多头图注意力残差网络 (Multi-head GAT)
         self.conv1 = GATConv(hidden_channels, hidden_channels, heads=heads, dropout=0.2)
@@ -38,10 +38,8 @@ class OpinionLeaderAdvancedGNN(torch.nn.Module):
         x_sem = F.leaky_relu(self.sem_lin(x[:, :300]))
         x_attr = F.leaky_relu(self.attr_lin(x[:, 300:]))
 
-        # 2. 门控融合
-        gate_input = torch.cat([x_sem, x_attr], dim=-1)
-        gate = torch.sigmoid(self.gate_layer(gate_input))
-        x_fused = gate * x_sem + (1 - gate) * x_attr
+        # 2. 简单相加融合（无门控）
+        x_fused = x_sem + x_attr
 
         # 3. 高阶图注意力信息传播
         x_graph = F.elu(self.conv1(x_fused, edge_index))

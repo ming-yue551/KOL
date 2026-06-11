@@ -1,0 +1,9 @@
+topic,desc,out_csv,truth_csv
+Dream,完整模型,KOL_GNN_Rank_Dream_full_Final_Optimized.csv,KOL_Rank_Dream_Video.csv
+Hair,完整模型,KOL_GNN_Rank_Hair_full_Final_Optimized.csv,KOL_Rank_PinkHair_Video.csv
+Dream,无对比学习,KOL_GNN_Rank_Dream_no_cl_Final_Optimized.csv,KOL_Rank_Dream_Video.csv
+Hair,无对比学习,KOL_GNN_Rank_Hair_no_cl_Final_Optimized.csv,KOL_Rank_PinkHair_Video.csv
+Dream,无门控融合,KOL_GNN_Rank_Dream_no_gate_Final_Optimized.csv,KOL_Rank_Dream_Video.csv
+Hair,无门控融合,KOL_GNN_Rank_Hair_no_gate_Final_Optimized.csv,KOL_Rank_PinkHair_Video.csv
+Dream,无多模态解耦,KOL_GNN_Rank_Dream_no_decouple_Final_Optimized.csv,KOL_Rank_Dream_Video.csv
+Hair,无多模态解耦,KOL_GNN_Rank_Hair_no_decouple_Final_Optimized.csv,KOL_Rank_PinkHair_Video.csv

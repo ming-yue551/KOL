@@ -140,7 +140,7 @@ def run_final_optimized_analysis(nodes_path, edges_path, label, scale_factor=0.5
     # 4. 进入多目标联合优化训练循环
     model.train()
     epochs = 50
-    lambda_cl = 0.05
+    lambda_cl = 0.0
 
     print(f" 🚀 模型开始迭代优化...")
     for epoch in range(1, epochs + 1):
